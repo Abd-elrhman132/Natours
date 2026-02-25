@@ -1,0 +1,59 @@
+.feature-box {
+  background-color: rgba($color-white, 0.7);
+  backdrop-filter: blur(1.5rem);
+  border: 1px solid rgba($color-white, 0.3);
+  font-size: 1.5rem;
+  padding: 3rem;
+  text-align: center;
+  border-radius: 1.5rem;
+  box-shadow: $shadow-light;
+  transition: $transition-bounce;
+  height: 100%;
+
+  // Modern entry animation
+  animation: fadeInDown .8s ease-out backwards;
+
+  @include respond(tab-port) {
+    padding: 2.5rem;
+  }
+
+  &__icon {
+    font-size: 6rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    background-image: linear-gradient(to right, $color-primary-light , $color-primary-dark);
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: all .4s;
+
+    @include respond(tab-port) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-2rem) scale(1.05);
+    box-shadow: $shadow-dark;
+    background-color: rgba($color-white, 0.9);
+
+    & .feature-box__icon {
+      transform: scale(1.2) rotate(10deg);
+    }
+  }
+  
+  &__text {
+    color: $color-grey-dark;
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
